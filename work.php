@@ -21,8 +21,7 @@ $twitter_screen_name = '[Twitter Username](e.g. h3zjp)';
 $tweets_count = 20;
 
 /* ファイル保存場所 */
-$file = '[Folder Full Path]';
-$file = $file + 'data.csv';
+$file = '[Folder Full Path]' . 'data.csv';
 
 /* オブジェクトを生成 */
 $connection = new TwitterOAuth ($consumer_key, $consumer_secret, $access_token, $access_token_secret);
@@ -86,7 +85,7 @@ if ($rcsv[0][0] != $tweet_post_text) {
 			'status' => $post_text,
 			'visibility' => 'public'
 		);
-		$mstdn_post_url = $mastodon_url + '/api/v1/statuses';
+		$mstdn_post_url = $mastodon_url . '/api/v1/statuses';
 		$curl = curl_init($mstdn_post_url);
 		curl_setopt($curl,CURLOPT_POST, TRUE);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($curl_post));
